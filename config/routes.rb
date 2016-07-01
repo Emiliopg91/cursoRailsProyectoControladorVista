@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'sitio/index'
+  get 'inicio' => "sitio#index", :as=>:inicio
+
+  get 'sitio/localizacion'
+  get 'localizacion' => "sitio#localizacion", :as=>:localizacion
+
+  get 'sitio/contacto'
+  get 'contacto' => "sitio#contacto", :as=>:contacto
+
+  
+  root :to => "sitio#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
