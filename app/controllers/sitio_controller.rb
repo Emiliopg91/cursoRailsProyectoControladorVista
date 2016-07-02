@@ -8,6 +8,21 @@ class SitioController < ApplicationController
   end
 
   def contacto
-    @titulo="Contacto"
+    if request.get?
+      @titulo="Contacto"
+    else
+      begin
+        if Email.recepcion(params).deliver
+          flash[:succ]="Correo enviado con éxito"
+        else
+          flash[:fail]="Error al enviar el correo"
+        end
+        redirect_to contacto_url
+      rescue
+      end
+    end
+  end
+  
+  def mandar
   end
 end

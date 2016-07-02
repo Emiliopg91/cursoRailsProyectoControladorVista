@@ -14,3 +14,37 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function validaContacto(){
+    var enviar=true;
+    
+    if($("#nombre").val().trim().length<1) {
+        $("#nombre").parent().addClass("has-error");
+        enviar=false;
+    }
+    else
+        $("#nombre").parent().removeClass("has-error");
+    
+    if(!/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test($("#correo").val())){
+        $("#correo").parent().addClass("has-error");
+        enviar=false;
+    }
+    else
+        $("#correo").parent().removeClass("has-error");
+    
+    if($("#asunto").val().trim().length<1){
+        $("#asunto").parent().addClass("has-error");
+        enviar=false;
+    }
+    else
+        $("#asunto").parent().removeClass("has-error");
+    
+    if($("#mensaje").val().trim().length<1){
+        $("#mensaje").parent().addClass("has-error");
+        enviar=false;
+    }
+    else
+        $("#mensaje").parent().removeClass("has-error");
+    
+    return enviar;
+}

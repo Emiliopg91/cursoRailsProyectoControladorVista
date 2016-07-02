@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get 'sitio/contacto'
   get 'contacto' => "sitio#contacto", :as=>:contacto
-
+  
+  post 'sitio/contacto'
+  post 'contacto' => "sitio#contacto"
   
   root :to => "sitio#index"
   # The priority is based upon order of creation: first created -> highest priority.
